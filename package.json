@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "yuta-katayama-23",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  }
 }
