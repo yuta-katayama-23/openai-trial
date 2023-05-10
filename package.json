@@ -15,5 +15,10 @@
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-import": "^2.27.5",
 		"prettier": "^2.8.8"
+	},
+	"dependencies": {
+		"commander": "^10.0.1",
+		"dotenv": "^16.0.3",
+		"openai": "^3.2.1"
 	}
 }
