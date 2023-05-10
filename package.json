@@ -1,0 +1,7 @@
+{
+  "name": "openai-trial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yuta-katayama-23",
+  "license": "MIT"
+}
