@@ -1,11 +1,19 @@
 {
-  "name": "openai-trial",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "yuta-katayama-23",
-  "license": "MIT",
-  "type": "module",
-  "devDependencies": {
-    "prettier": "^2.8.8"
-  }
+	"name": "openai-trial",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "yuta-katayama-23",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"lint:fix": "eslint . --fix"
+	},
+	"devDependencies": {
+		"@rushstack/eslint-patch": "^1.2.0",
+		"eslint": "^8.40.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-import": "^2.27.5",
+		"prettier": "^2.8.8"
+	}
 }
