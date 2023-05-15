@@ -10,7 +10,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 program
-	.requiredOption('-a, --animal <animal name>', 'animal name')
 	.option(
 		'-t, --temperature [temperature]',
 		'temperature',
@@ -23,28 +22,25 @@ program
 		}
 	)
 	.parse(process.argv);
-const { animal, temperature } = program.opts();
+const { temperature } = program.opts();
 
-const generatePrompt = (animalName) => {
-	const capitalizedAnimal =
-		animalName[0].toUpperCase() + animalName.slice(1).toLowerCase();
-	return `Suggest three names for an animal that is a superhero.
-  
-  Animal: Cat
-  Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-  Animal: Dog
-  Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-  Animal: ${capitalizedAnimal}
-  Names:`;
-};
+const generateMessages = () => [
+	{ role: 'system', content: 'You are a helpful assistant.' },
+	{ role: 'user', content: 'Who won the world series in 2020?' },
+	{
+		role: 'assistant',
+		content: 'The Los Angeles Dodgers won the World Series in 2020.'
+	},
+	{ role: 'user', content: 'Where was it played?' }
+];
 
 try {
-	const completion = await openai.createCompletion({
-		model: 'text-davinci-003',
-		prompt: generatePrompt(animal),
+	const completion = await openai.createChatCompletion({
+		model: 'gpt-3.5-turbo',
+		messages: generateMessages(),
 		temperature: temperature || 0
 	});
-	console.log(completion.data.choices[0].text);
+	console.log(completion.data.choices[0]);
 } catch (error) {
 	if (error.response) {
 		console.error(error.response.status, error.response.data);
